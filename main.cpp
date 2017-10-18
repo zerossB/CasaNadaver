@@ -4,7 +4,7 @@
 #include <GL/glut.h>
 #include "imageloader.h"
 
-GLuint _textureBrick, _textureDoor, _textureGrass, _textureRoof, _textureWindow, _textureSky, _textureWorld;
+GLuint _textureBrick, _textureDoor, _textureGrass, _textureRoof, _textureWindow, _textureSky, _textureWorld, _textureOlho;
 GLUquadric *quad;
 
 // actual vector representing the camera's direction
@@ -23,6 +23,7 @@ static void resize(int width, int height){
     const float ar = (float) width / (float) height;
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
+    gluPerspective(45.0f, ar, 0.1f, 100.0f);
     glLoadIdentity();
     glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
     glMatrixMode(GL_MODELVIEW);
@@ -259,12 +260,9 @@ void createHouse(){
 }
 
 void createSnowMan(){
+    glScalef(5.0f, 5.0f, 5.0f);
+    glTranslatef(5.0f, -3.0f, -8.0f);
     glPushMatrix();
-        //Draw Eyes
-        glPopMatrix();
-
-        glPushMatrix();
-
         // Draw Head
         glTranslatef(0.0f, 1.0f, 0.0f);
         glutSolidSphere(0.4f, 20, 20);
