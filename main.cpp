@@ -4,7 +4,7 @@
 #include <GL/glut.h>
 #include "imageloader.h"
 
-GLuint _textureBrick, _textureDoor, _textureGrass, _textureRoof, _textureWindow, _textureSky, _textureWorld, _textureOlho;
+GLuint _textureBrick, _textureDoor, _textureGrass, _textureRoof, _textureWindow, _textureSky, _textureWorld, _textureOlho, _textureOlho1;
 GLUquadric *quad;
 
 // actual vector representing the camera's direction
@@ -36,7 +36,7 @@ void createCube(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-        //Lado multicolorido - Frente
+        /*Lado multicolorido - Frente
         glBegin(GL_QUADS);
             glTexCoord3f(0.0,1.0,0.1);	glVertex3f(  1.0, -1.0, -1.0 );
             glTexCoord3f(1.0,1.0,0.1);	glVertex3f(  1.0,  1.0, -1.0 );
@@ -75,6 +75,7 @@ void createCube(){
             glVertex3f( -1.0,  1.0, -1.0 );
             glVertex3f( -1.0,  1.0,  1.0 );
         glEnd();
+        */
 
         // Lado vermelho - BASE
         glBegin(GL_QUADS);
@@ -87,6 +88,9 @@ void createCube(){
 }
 
 void createWorld(){
+    const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0; // glutGet(GLUT_ELAPSED_TIME) = Retorna o número de milissegundos desde que GlutInit foi chamado.
+    const double a = t*90.0;
+
     // Draw Body
     glPushMatrix();
         glEnable(GL_TEXTURE_2D);
@@ -95,13 +99,10 @@ void createWorld(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         glTranslatef(0.0f, 25.0f, -45.0f);
+        glRotated(180,1,0,0);
+        glRotated(a,0,1,0);
         gluQuadricTexture(quad,1);
         gluSphere(quad, 5, 1024, 512);
-    glPopMatrix();
-
-
-    glPushMatrix();
-
     glPopMatrix();
 }
 
@@ -275,6 +276,37 @@ void createSnowMan(){
     glPopMatrix();
 }
 
+void createBall(){
+
+    int slices = 20;
+    int stacks = 20;
+
+    const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0; // glutGet(GLUT_ELAPSED_TIME) = Retorna o número de milissegundos desde que GlutInit foi chamado.
+    const double a = t*90.0;
+
+    //glColor3d(1,0,1);
+
+    //Esfera
+    glPushMatrix();
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, _textureOlho);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        glTranslated(-15.0f,25.0f,-45.0f);
+        glRotated(180,1,0,0);
+        glRotated(a,0,1,0); //glRotated(a,0,0,1);
+        gluSphere(quad, 4,slices,stacks);
+    glPopMatrix();
+
+    //Anel
+    glPushMatrix();
+        glTranslated(-15.0f,25.0f,-45.0f);
+        glRotated(90,1,0,0);
+        glutSolidTorus(0.8,5.5,slices,stacks);
+    glPopMatrix();
+}
+
 void renderScene() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_TEXTURE_2D);
@@ -324,6 +356,16 @@ void renderScene() {
     glPushMatrix();
         createWorld();
     glPopMatrix();
+
+    glPushMatrix();
+        createBall();
+    glPopMatrix();
+
+    /*ILUMINAÇÃO
+    glEnable(GL_LIGHT0);
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING);*/
 
     glutSwapBuffers();
 }
@@ -396,23 +438,40 @@ void Initialize() {
 
 	quad = gluNewQuadric();
 
-	Image* image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\bricks.bmp");
+	Image* image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\bricks.bmp");
 	_textureBrick = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\door.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\door.bmp");
 	_textureDoor = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\grass.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\grass.bmp");
 	_textureGrass = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\roof.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\roof.bmp");
 	_textureRoof = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\window.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\window.bmp");
 	_textureWindow = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\sky.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\sky.bmp");
 	_textureSky = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\worldtex.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\worldtex.bmp");
 	_textureWorld = loadTexture(image);
+
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\saturnmap.bmp");
+	_textureOlho = loadTexture(image);
+	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\saturnringmap.bmp");
+	_textureOlho1 = loadTexture(image);
+
 
 	delete image;
 }
+
+const GLfloat light_ambient[]  = { 0.0f, 0.0f, 0.0f, 1.0f };
+const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_position[] = { 2.0f, 5.0f, 5.0f, 0.0f };
+
+const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
+const GLfloat mat_diffuse[]    = { 0.8f, 0.8f, 0.8f, 1.0f };
+const GLfloat mat_specular[]   = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat high_shininess[] = { 100.0f };
+
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
@@ -428,6 +487,19 @@ int main(int argc, char **argv) {
 	glutKeyboardFunc(processNormalKeys);
     glutSpecialFunc(processSpecialKeys);
     glEnable(GL_DEPTH_TEST);
+
+    /*ILUMINAÇÃO
+    glDepthFunc(GL_LESS);
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE,  light_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);*/
 
 	Initialize();
 

@@ -267,3 +267,31 @@
 1341010374 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
 
+1508319562 source:c:\users\elias\desktop\opengl\casanadaver-master\imageloader.cpp
+	<assert.h>
+	<fstream>
+	"imageloader.h"
+
+1508319562 c:\users\elias\desktop\opengl\casanadaver-master\imageloader.h
+
+1508352127 source:c:\users\elias\desktop\opengl\casanadaver-master\main.cpp
+	<math.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glut.h>
+	"imageloader.h"
+
+1508319562 source:c:\users\hayness\desktop\casanadaver-master\imageloader.cpp
+	<assert.h>
+	<fstream>
+	"imageloader.h"
+
+1508319562 c:\users\hayness\desktop\casanadaver-master\imageloader.h
+
+1508367769 source:c:\users\hayness\desktop\casanadaver-master\main.cpp
+	<math.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glut.h>
+	"imageloader.h"
+
