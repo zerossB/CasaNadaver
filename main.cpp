@@ -4,7 +4,8 @@
 #include <GL/glut.h>
 #include "imageloader.h"
 
-GLuint _textureBrick, _textureDoor, _textureGrass, _textureRoof, _textureWindow, _textureSky, _textureWorld, _textureOlho, _textureOlho1;
+GLuint _textureBrick, _textureDoor, _textureGrass, _textureRoof, _textureWindow,
+    _textureSky, _textureWorld, _textureOlho, _textureOlho1;
 GLUquadric *quad;
 
 // actual vector representing the camera's direction
@@ -272,7 +273,6 @@ void createSnowMan(){
         glTranslatef(0.0f, 1.0f, 0.0f);
         glTranslatef(0.0f, -2.3f, 0.0f);
         glutSolidSphere(1.0f, 40, 40);
-
     glPopMatrix();
 }
 
@@ -438,25 +438,27 @@ void Initialize() {
 
 	quad = gluNewQuadric();
 
-	Image* image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\bricks.bmp");
+	Image* image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\bricks.bmp");
 	_textureBrick = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\door.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\door.bmp");
 	_textureDoor = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\grass.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\grass.bmp");
 	_textureGrass = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\roof.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\roof.bmp");
 	_textureRoof = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\window.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\window.bmp");
 	_textureWindow = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\sky.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\sky.bmp");
 	_textureSky = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\worldtex.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\worldtex.bmp");
 	_textureWorld = loadTexture(image);
 
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\saturnmap.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\saturnmap.bmp");
 	_textureOlho = loadTexture(image);
-	image = loadBMP("C:\\Users\\hayness\\Desktop\\CasaNadaver-master\\saturnringmap.bmp");
+	image = loadBMP("C:\\Users\\hayness\\Documents\\OpenGL\\3D-House-using-OpenGL-and-C--master\\saturnringmap.bmp");
 	_textureOlho1 = loadTexture(image);
+
+
 
 
 	delete image;
