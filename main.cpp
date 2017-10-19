@@ -116,6 +116,7 @@ void createHouse(){
         glTranslatef(0,0,-6);
         //glRotatef(_angle, 0.0, 1.0, 0.0);
         glBegin(GL_QUADS);
+            glNormal3f(0.0f, 1.0f, 0.0f);
             glTexCoord3f(0.0,70.0,1);  glVertex3f(-50,-1.5,50);
             glTexCoord3f(0.0,0.0,-1);  glVertex3f(-50,-1.5,-50);
             glTexCoord3f(70.0,0.0,-1);  glVertex3f(50,-1.5,-50);
@@ -131,6 +132,7 @@ void createHouse(){
         glTranslatef(0,0,-6);
         //glRotatef(_angle, 0.0, 1.0, 0.0);
         glBegin(GL_QUADS);  // Wall
+            glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord3f(0.0,2.0,0.1);  glVertex3f(-2,0,1);
             glTexCoord3f(4.0,2.0,0.1);  glVertex3f(2,0,1);
             glTexCoord3f(4.0,0.0,0.1);  glVertex3f(2,-1.5,1);
@@ -141,6 +143,7 @@ void createHouse(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glBegin(GL_QUADS);  // Roof
+            glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord3f(0.0,2.0,0); glVertex3f(-2.2,0.5,0);
             glTexCoord3f(4.0,2.0,0);glVertex3f(2.2,0.5,0);
             glTexCoord3f(4.0,0.0,1.25); glVertex3f(2.2,-0.1,1.25);
@@ -151,6 +154,7 @@ void createHouse(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glBegin(GL_QUADS);  // Door
+            glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord3f(0.0,1.0,1.0001); glVertex3f(-0.3,-0.4,1.0001);
             glTexCoord3f(1.0,1.0,1.0001); glVertex3f(0.3,-0.4,1.0001);
             glTexCoord3f(1.0,0.0,1.0001); glVertex3f(0.3,-1.5,1.0001);
@@ -161,6 +165,7 @@ void createHouse(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glBegin(GL_QUADS);  // Window Left
+            glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord3f(0.0,1.0,1.0001); glVertex3f(-1.5,-0.3,1.0001);
             glTexCoord3f(1.0,1.0,1.0001); glVertex3f(-0.75,-0.3,1.0001);
             glTexCoord3f(1.0,0.0,1.0001); glVertex3f(-0.75,-0.8,1.0001);
@@ -168,6 +173,7 @@ void createHouse(){
         glEnd();
 
         glBegin(GL_QUADS);  // Window Right
+            glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord3f(0.0,1.0,1.0001); glVertex3f(1.5,-0.3,1.0001);
             glTexCoord3f(1.0,1.0,1.0001); glVertex3f(0.75,-0.3,1.0001);
             glTexCoord3f(1.0,0.0,1.0001); glVertex3f(0.75,-0.8,1.0001);
@@ -184,6 +190,7 @@ void createHouse(){
         glTranslatef(0,0,-6);
         //glRotatef(_angle, 0.0, 1.0, 0.0);
         glBegin(GL_QUADS);  // Wall
+            glNormal3f(0.0f, 0.0f, -1.0f);
             glTexCoord3f(0.0,2.0,-1);  glVertex3f(-2,0,-1);
             glTexCoord3f(4.0,2.0,-1);  glVertex3f(2,0,-1);
             glTexCoord3f(4.0,0.0,-1);  glVertex3f(2,-1.5,-1);
@@ -194,6 +201,7 @@ void createHouse(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glBegin(GL_QUADS);  // Roof
+            glNormal3f(0.0f, 0.0f, -1.0f);
             glTexCoord3f(0.0,2.0,0); glVertex3f(-2.2,0.5,0);
             glTexCoord3f(4.0,2.0,0);glVertex3f(2.2,0.5,0);
             glTexCoord3f(4.0,0.0,-1.25); glVertex3f(2.2,-0.1,-1.25);
@@ -204,6 +212,7 @@ void createHouse(){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glBegin(GL_QUADS);  // Window Left
+            glNormal3f(0.0f, 0.0f, -1.0f);
             glTexCoord3f(0.0,1.0,-1.0001); glVertex3f(-1.5,-0.3,-1.0001);
             glTexCoord3f(1.0,1.0,-1.0001); glVertex3f(-0.75,-0.3,-1.0001);
             glTexCoord3f(1.0,0.0,-1.0001); glVertex3f(-0.75,-0.8,-1.0001);
@@ -211,6 +220,7 @@ void createHouse(){
         glEnd();
 
         glBegin(GL_QUADS);  // Window Right
+            glNormal3f(0.0f, 0.0f, -1.0f);
             glTexCoord3f(0.0,1.0,1.0001); glVertex3f(1.5,-0.3,-1.0001);
             glTexCoord3f(1.0,1.0,1.0001); glVertex3f(0.75,-0.3,-1.0001);
             glTexCoord3f(1.0,0.0,1.0001); glVertex3f(0.75,-0.8,-1.0001);
@@ -226,6 +236,7 @@ void createHouse(){
         glTranslatef(0,0,-6);
         //glRotatef(_angle, 0.0, 1.0, 0.0);
         glBegin(GL_QUADS);  // Wall
+            glNormal3f(1.0f, 0.0f, 0.0f);
             glTexCoord3f(0.0,2.0,1); glVertex3f(2,0,1);
             glTexCoord3f(2.0,2.0,-1); glVertex3f(2,0,-1);
             glTexCoord3f(2.0,0.0,-1); glVertex3f(2,-1.5,-1);
@@ -233,6 +244,7 @@ void createHouse(){
         glEnd();
 
         glBegin(GL_TRIANGLES);  // Wall Upper
+            glNormal3f(1.0f, 0.0f, 0.0f);
             glTexCoord3f(0.0,1.0,0); glVertex3f(2,0.5,0);
             glTexCoord3f(1.0,0.0,1); glVertex3f(2,0,1);
             glTexCoord3f(-1.0,0.0,-1); glVertex3f(2,0,-1);
@@ -247,6 +259,7 @@ void createHouse(){
         glTranslatef(0,0,-6);
         //glRotatef(_angle, 0.0, 1.0, 0.0);
         glBegin(GL_QUADS);  // Wall
+            glNormal3f(-1.0f, 0.0f, 0.0f);
             glTexCoord3f(0.0,2.0,1);    glVertex3f(-2,0,1);
             glTexCoord3f(2.0,2.0,-1);    glVertex3f(-2,0,-1);
             glTexCoord3f(2.0,0.0,-1);    glVertex3f(-2,-1.5,-1);
@@ -254,6 +267,7 @@ void createHouse(){
         glEnd();
 
         glBegin(GL_TRIANGLES);  // Wall Upper
+            glNormal3f(-1.0f, 0.0f, 0.0f);
             glTexCoord3f(0.0,1.0,0);    glVertex3f(-2,0.5,0);
             glTexCoord3f(1.0,0.0,1);    glVertex3f(-2,0,1);
             glTexCoord3f(-1.0,0.0,-1);    glVertex3f(-2,0,-1);
@@ -361,11 +375,11 @@ void renderScene() {
         createBall();
     glPopMatrix();
 
-    /*ILUMINA플O
+    //ILUMINA플O
     glEnable(GL_LIGHT0);
     glEnable(GL_NORMALIZE);
     glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_LIGHTING);*/
+    glEnable(GL_LIGHTING);
 
     glutSwapBuffers();
 }
@@ -490,7 +504,7 @@ int main(int argc, char **argv) {
     glutSpecialFunc(processSpecialKeys);
     glEnable(GL_DEPTH_TEST);
 
-    /*ILUMINA플O
+    //ILUMINA플O
     glDepthFunc(GL_LESS);
 
     glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
@@ -501,7 +515,7 @@ int main(int argc, char **argv) {
     glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
     glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
     glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);*/
+    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
 
 	Initialize();
 
